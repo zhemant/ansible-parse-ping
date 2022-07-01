@@ -1,0 +1,13 @@
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Test that my module works
+    parse-ping:
+      dest: 192.168.178.1
+      count: 2
+    register: result
+
+  - debug:
+      msg:
+      - "{{ result.cmd }}"
+      - "{{ result.meta }}"
